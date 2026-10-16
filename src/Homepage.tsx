@@ -30,7 +30,7 @@ const presets = [
 
 const translations = {
   en: {
-    title: "CurrentCheck TN",
+    title: "Watt Spring",
     subtitle: "Understand your home's electricity usage.",
     add: "Add appliance",
     appliances: "Your appliances",
@@ -57,7 +57,7 @@ const translations = {
     noActual: "Enter your EB bill units to compare.",
   },
   ta: {
-    title: "CurrentCheck TN",
+    title: "Watt Spring",
     subtitle: "உங்கள் வீட்டின் மின்சாரப் பயன்பாட்டை அறியுங்கள்.",
     add: "சாதனத்தைச் சேர்க்க",
     appliances: "உங்கள் மின்சாதனங்கள்",
