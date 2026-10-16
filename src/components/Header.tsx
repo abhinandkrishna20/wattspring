@@ -7,6 +7,7 @@ import {
   Languages,
   ChevronRight,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export type Language = "en" | "ta";
 
@@ -60,13 +61,14 @@ export default function Header({
           className="hidden items-center gap-1 lg:flex"
         >
           {navigation.map((item) => (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
+              onClick={closeMenu}
               className="rounded-lg px-4 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-watt-light hover:text-watt-green"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 

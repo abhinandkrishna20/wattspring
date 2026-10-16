@@ -123,7 +123,7 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col gap-5 border-t border-white/15 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs leading-6 text-slate-400">
-            © {new Date().getFullYear()} WattSpring.
+            © {new Date().getFullYear()} <Link to="/">WattSpring</Link>.
             All rights reserved.
           </p>
 
