@@ -1,0 +1,3 @@
+npm i -g neon@latest && neon login && neon skills -y && neon mcp -y && neon link --project-id orange-voice-51042597 --branch production -y
+
+postgresql://neondb_owner:npg_wRcHOn6mUY3S@ep-winter-field-b4ki6r81-pooler.c-6.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
