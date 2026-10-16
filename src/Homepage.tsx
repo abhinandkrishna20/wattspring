@@ -1,11 +1,12 @@
 
 import { useMemo, useState } from "react";
 import {
-  Zap, Plus, Trash2, Languages, House,
+  Zap, Plus, Trash2, House,
   Lightbulb, Fan, Tv, Refrigerator, WashingMachine,
   AirVent, Plug, RotateCcw,
 } from "lucide-react";
 import "./index.css";
+import type { Language } from "./components/Header";
 
 type Appliance = {
   id: number;
@@ -98,8 +99,7 @@ function ApplianceIcon({ name }: { name: string }) {
   }
 }
 
-export default function Homepage() {
-  const [lang, setLang] = useState<"en" | "ta">("en");
+export default function Homepage({ lang }: { lang: Language }) {
   const [period, setPeriod] = useState<30 | 60>(60);
   const [actual, setActual] = useState("");
   const [customName, setCustomName] = useState("");
@@ -177,17 +177,7 @@ export default function Homepage() {
 
   return (
     <main className="app-shell">
-      <header className="topbar">
-        <a className="brand" href="#" aria-label="CurrentCheck home">
-          <span className="brand-icon"><Zap size={24} fill="currentColor" /></span>
-          <span>{t.title}<small>HOME ENERGY ESTIMATOR</small></span>
-        </a>
-        <button className="language-button" onClick={() =>
-          setLang(lang === "en" ? "ta" : "en")
-        }>
-          <Languages size={17} /> {t.language}
-        </button>
-      </header>
+     
 
       <section className="hero">
         <div className="hero-copy">
@@ -344,7 +334,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      <footer>Watt Spring · An independent household electricity estimation tool.</footer>
+     
     </main>
   );
 }
