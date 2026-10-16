@@ -344,7 +344,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      <footer>CurrentCheck TN · An independent household electricity estimation tool.</footer>
+      <footer>Watt Spring · An independent household electricity estimation tool.</footer>
     </main>
   );
 }
