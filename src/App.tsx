@@ -7,6 +7,9 @@ import { BrowserRouter, Routes , Route} from "react-router-dom";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
+import Disclaimer from "./pages/Disclaimer";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
 
 const App = () => {
   const [lang, setLang] = useState<"en" | "ta">("en");
@@ -26,6 +29,12 @@ const App = () => {
       <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
+          
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
+    
+          <Route path="/disclaimer" element={<Disclaimer />} />
     </Routes>
      
       
