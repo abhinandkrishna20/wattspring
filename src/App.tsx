@@ -1,15 +1,29 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import type { Language } from "./components/Header";
 import Homepage from "./Homepage"
 import MainLayout from "./layouts/Mainlayout"
-import { BrowserRouter, Routes , Route} from "react-router-dom";
+import { BrowserRouter, Routes , Route, useLocation} from "react-router-dom";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
 import Disclaimer from "./pages/Disclaimer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+import { trackPageView } from "./analytics";
+
+
+
+function AnalyticsTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    void trackPageView(location.pathname);
+  }, [location.pathname]);
+
+  return null;
+}
+
 
 const App = () => {
   const [lang, setLang] = useState<"en" | "ta">("en");
@@ -20,6 +34,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+    <AnalyticsTracker />
     <MainLayout lang={lang}
       onLanguageChange={toggleLanguage}>
    
