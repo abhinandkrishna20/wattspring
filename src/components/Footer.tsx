@@ -1,17 +1,5 @@
-
-import {
-  Zap,
-  ArrowUpRight,
-
- Camera ,
-Link ,
- 
-  
-  Mail,
-  Play,
-} from "lucide-react";
-
-
+import { Zap, ArrowUpRight, Camera, Mail, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 const exploreLinks = [
   { label: "Home", href: "/" },
   { label: "About WattSpring", href: "/about" },
@@ -34,12 +22,12 @@ const socialLinks = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/",
-    Icon: Link,
+    Icon: Zap,
   },
   {
     label: "YouTube",
     href: "https://www.youtube.com/",
-    Icon: Play ,
+    Icon: Play,
   },
 ];
 
@@ -65,9 +53,8 @@ export default function Footer() {
             </a>
 
             <p className="mt-5 max-w-md text-sm leading-7 text-slate-300">
-              Making electricity usage easier to understand
-              through practical tools, useful information and
-              energy awareness.
+              Making electricity usage easier to understand through practical
+              tools, useful information and energy awareness.
             </p>
 
             <a
@@ -123,19 +110,18 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col gap-5 border-t border-white/15 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs leading-6 text-slate-400">
-            © {new Date().getFullYear()} <Link to="/">WattSpring</Link>.
-            All rights reserved.
+            © {new Date().getFullYear()} <Link to="/">WattSpring</Link>. All
+            rights reserved.
           </p>
 
           <div className="flex items-center gap-3">
-            <span className="mr-1 text-xs text-slate-400">
-              Follow us
-            </span>
+            <span className="mr-1 text-xs text-slate-400">Follow us</span>
 
             {socialLinks.map(({ label, href, Icon }) => (
-              <a
+              <Link
                 key={label}
-                href={href}
+                to={href} 
+               
                 target="_blank"
                 rel="noreferrer"
                 aria-label={label}
@@ -143,7 +129,7 @@ export default function Footer() {
                 className="grid size-10 place-items-center rounded-lg border border-white/15 text-slate-200 transition hover:border-emerald-400 hover:bg-white/10 hover:text-emerald-300"
               >
                 <Icon size={18} />
-              </a>
+              </Link>
             ))}
           </div>
         </div>
