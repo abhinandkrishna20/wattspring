@@ -7,6 +7,8 @@ import {
   Search,
 } from "lucide-react";
 import "./History.css";
+import { Link } from "react-router-dom";
+import { articles as publishedArticles  } from "../../data/articles";
 
 type HistoryCategory =
   | "Discoveries"
@@ -327,7 +329,7 @@ export default function History() {
 
         {visibleArticles.length > 0 ? (
           <div className="history-article-grid">
-            {visibleArticles.map((article) => (
+            {/* {visibleArticles.map((article) => (
               <article className="history-article-card" key={article.id}>
                 <div className="history-image-wrap">
                   <img
@@ -346,7 +348,60 @@ export default function History() {
                   <p>{article.description}</p>
                 </div>
               </article>
-            ))}
+            ))} */}
+            
+{visibleArticles.map((article) => {
+  const publishedArticle = publishedArticles.find(
+    (item) =>
+      item.collection === "history" &&
+      item.title === article.title
+  );
+
+  const cardContent = (
+    <>
+      <div className="history-image-wrap">
+        <img
+          src={article.image}
+          alt={article.imageAlt}
+          loading="lazy"
+        />
+        <span className="history-image-year">
+          {article.year}
+        </span>
+      </div>
+
+      <div className="history-article-body">
+        <span className="history-article-category">
+          {article.category}
+        </span>
+        <h3>{article.title}</h3>
+        <p>{article.description}</p>
+      </div>
+    </>
+  );
+
+  return publishedArticle ? (
+    <Link
+      to={`/history/${publishedArticle.slug}`}
+      className="history-article-card history-article-card-link"
+      key={article.id}
+      aria-label={`Read ${article.title}`}
+    >
+      {cardContent}
+    </Link>
+  ) : (
+    <article
+      className="history-article-card"
+      key={article.id}
+    >
+      {cardContent}
+    </article>
+  );
+})}
+
+
+
+
           </div>
         ) : (
           <div className="history-empty">

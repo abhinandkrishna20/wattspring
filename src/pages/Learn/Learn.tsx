@@ -23,6 +23,8 @@ import {
   Calculator,
 } from "lucide-react";
 import "./Learn.css";
+import { Link } from "react-router-dom";
+import { articles } from "../../data/articles";
 
 const topics = [
   { name: "Electricity Basics", description: "Voltage, current and resistance", icon: Zap, count: 12 },
@@ -255,7 +257,7 @@ export default function Learn() {
         </div>
 
         <div className="learn-tutorial-list">
-          {filteredTutorials.map((tutorial) => {
+          {/* {filteredTutorials.map((tutorial) => {
             const Icon = tutorial.icon;
 
             return (
@@ -281,7 +283,60 @@ export default function Learn() {
                 </span>
               </article>
             );
-          })}
+          })} */}
+          
+{filteredTutorials.map((tutorial) => {
+  const Icon = tutorial.icon;
+
+  const article = articles.find(
+    (item) =>
+      item.collection === "learn" &&
+      item.title === tutorial.title
+  );
+
+  const cardContent = (
+    <>
+      <div className="learn-tutorial-art" aria-hidden="true">
+        <Icon size={38} strokeWidth={1.4} />
+        <span>W / LAB</span>
+      </div>
+
+      <div className="learn-tutorial-copy">
+        <span className="learn-tutorial-category">
+          {tutorial.category}
+        </span>
+        <h3>{tutorial.title}</h3>
+        <p>{tutorial.description}</p>
+        <span className="learn-tutorial-meta">
+          <BookOpen size={14} /> {tutorial.readTime}
+        </span>
+      </div>
+
+      <span className="learn-tutorial-arrow" aria-hidden="true">
+        <ArrowUpRight size={19} />
+      </span>
+    </>
+  );
+
+  return article ? (
+    <Link
+      to={`/learn/${article.slug}`}
+      className="learn-tutorial-card learn-tutorial-card-link"
+      key={tutorial.title}
+      aria-label={`Read ${tutorial.title}`}
+    >
+      {cardContent}
+    </Link>
+  ) : (
+    <article
+      className="learn-tutorial-card"
+      key={tutorial.title}
+    >
+      {cardContent}
+    </article>
+  );
+})}
+
 
           {filteredTutorials.length === 0 && (
             <div className="learn-empty-state">

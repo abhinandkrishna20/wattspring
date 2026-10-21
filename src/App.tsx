@@ -13,6 +13,7 @@ import Terms from "./pages/Terms";
 import { trackPageView } from "./analytics";
 import Learn from "./pages/Learn/Learn";
 import History from "./pages/History/History";
+import ArticlePage from "./pages/ArticlePage/ArticlePage";
 
 
 
@@ -48,6 +49,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/learn" element={<Learn />} />
           <Route path="/history" element={<History />} />
+          <Route path="/learn/:slug" element={<ArticlePage />} />
+          <Route path="/history/:slug" element={<ArticlePage />} />
           
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
