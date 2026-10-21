@@ -21,6 +21,9 @@ const navigation = [
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
+  { label: "Learn", href: "/learn" },
+  { label: "History", href: "/history" },
+  { label: "Education", href: "/education" },
 ];
 
 export default function Header({

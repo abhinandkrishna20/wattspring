@@ -11,6 +11,8 @@ import Disclaimer from "./pages/Disclaimer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import { trackPageView } from "./analytics";
+import Learn from "./pages/Learn/Learn";
+import History from "./pages/History/History";
 
 
 
@@ -44,6 +46,8 @@ const App = () => {
       <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/learn" element={<Learn />} />
+          <Route path="/history" element={<History />} />
           
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
